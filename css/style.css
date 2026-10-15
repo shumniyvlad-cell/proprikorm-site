@@ -286,9 +286,14 @@ html:not(.motion) .plate-wrap { position: sticky; top: calc(var(--nav-h) + 40px)
 /* ---------- about ---------- */
 .about { padding: clamp(80px, 11vw, 150px) 0 clamp(60px, 8vw, 110px); }
 .about-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
-.about-photo { position: relative; aspect-ratio: 4 / 5; }
-.about-disc { position: absolute; left: 50%; top: 14%; width: 86%; aspect-ratio: 1; translate: -50% 0; border-radius: 50%; background: var(--yolk); }
-.about-photo img { position: absolute; left: 50%; bottom: 0; height: 100%; width: auto; max-width: none; translate: -50% 0; }
+.about-photo { position: relative; width: 100%; max-width: min(500px, calc((100svh - 140px) * .8)); justify-self: center; }
+.about-arch {
+  position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+  border-radius: 999px 999px 32px 32px;
+  background: var(--yolk);
+}
+.about-arch img { position: absolute; left: 50%; top: -29%; height: 180%; width: auto; max-width: none; translate: -50% 0; }
+.about-food { position: absolute; width: 30%; left: -9%; bottom: 7%; rotate: -16deg; filter: drop-shadow(0 14px 16px rgba(42, 21, 51, .22)); }
 .about-lead { margin-top: 24px; font: 500 clamp(20px, 1.9vw, 26px)/1.35 var(--display); letter-spacing: -.01em; }
 .about-text > p:not(.about-lead) { margin-top: 18px; max-width: 34em; color: var(--ink-soft); }
 .facts { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; border-top: 2px solid var(--ink); padding-top: 22px; }
@@ -435,7 +440,8 @@ html:not(.motion) .plate-wrap { position: sticky; top: calc(var(--nav-h) + 40px)
   .motion .stories { min-height: 8.5em; }
 
   .webinar-grid, .about-grid, .register-grid { grid-template-columns: 1fr; }
-  .about-photo { max-width: 420px; width: 100%; margin: 0 auto; }
+  .about-photo { max-width: 400px; margin: 0 auto; }
+  .about-food { left: -4%; }
   .steps { grid-template-columns: 1fr; }
   .register-food { display: none; }
   .footer-grid { grid-template-columns: 1fr; }
