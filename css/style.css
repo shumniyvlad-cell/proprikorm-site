@@ -183,7 +183,7 @@ ul, ol { padding: 0; list-style: none; }
 .story-who { margin-top: 12px; font-size: 15px; color: var(--ink-soft); }
 .story + .story { margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--line); }
 
-.plate-wrap { position: relative; width: 100%; max-width: 640px; justify-self: center; aspect-ratio: 1; }
+.plate-wrap { position: relative; width: 100%; max-width: min(640px, calc(100svh - var(--nav-h) - 96px)); justify-self: center; aspect-ratio: 1; }
 .plate-bg { position: absolute; inset: -6%; border-radius: 50%; background: var(--cucumber); }
 .plate { position: absolute; inset: 6%; }
 .plate > .plate-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 20px 24px rgba(42, 21, 51, .18)); }
@@ -200,10 +200,10 @@ ul, ol { padding: 0; list-style: none; }
 .fd-tomato   { left: 16%; top: 50%; width: 19%; }
 .fd-broccoli { left: 51%; top: 47%; width: 21%; }
 .fd-carrot   { left: 84%; top: 52%; width: 17%; rotate: 8deg; }
-.fd-soup     { left: 92%; top: 88%; width: 33%; }
-.fd-grechka  { left: 6%;  top: 86%; width: 27%; }
-.fd-apple    { left: 94%; top: 10%; width: 22%; }
-.fd-berries  { left: 50%; top: 99%; width: 23%; }
+.fd-soup     { left: 85%; top: 83%; width: 27%; }
+.fd-grechka  { left: 10%; top: 84%; width: 24%; }
+.fd-apple    { left: 90%; top: 12%; width: 20%; }
+.fd-berries  { left: 52%; top: 93%; width: 20%; }
 
 /* static mode: plate stays in view while the list scrolls */
 html:not(.motion) .plate-pin { align-items: start; }
@@ -214,6 +214,16 @@ html:not(.motion) .plate-wrap { position: sticky; top: calc(var(--nav-h) + 40px)
 .motion .plate-story .story + .story { margin: 0; padding: 0; border: 0; }
 .motion .plate-story .story.is-active { opacity: 1; visibility: visible; }
 .motion .stories { min-height: 9.5em; }
+
+/* short desktop windows: keep the whole pinned scene inside the viewport */
+@media (min-width: 901px) and (max-height: 760px) {
+  .motion .plate-sub { display: none; }
+  .plate-title { font-size: clamp(30px, 6.4svh, 48px); }
+  .counter { margin-top: 18px; }
+  .counter-num { font-size: clamp(56px, 11svh, 84px); }
+  .stories { margin-top: 16px; }
+  .story-quote { font-size: clamp(18px, 3.2svh, 22px); }
+}
 
 /* ---------- pains ---------- */
 .pains { background: var(--spinach); color: #fff; padding: clamp(80px, 11vw, 150px) 0; }
