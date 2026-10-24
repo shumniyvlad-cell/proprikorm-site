@@ -2,7 +2,7 @@
   'use strict';
 
   var WA_NUMBER = '77769860358';
-  var WEBINAR_START = new Date('2026-10-27T19:00:00+05:00');
+  var WEBINAR_START = new Date('2026-11-03T20:00:00+05:00');
   var WEBINAR_LENGTH_MS = 2.5 * 60 * 60 * 1000;
 
   var root = document.documentElement;
@@ -107,7 +107,7 @@
     } else if (n < 3) {
       painsResult.innerHTML = 'Отмечено ' + n + '. Именно это разберём на вебинаре. <a href="#register">Забронировать место</a>';
     } else {
-      painsResult.innerHTML = 'Отмечено ' + n + ' из ' + chips.length + '. Это типичная картина малоежки, и её можно поменять без давления. <a href="#register">Приходите 27 октября</a>';
+      painsResult.innerHTML = 'Отмечено ' + n + ' из ' + chips.length + '. Это типичная картина малоежки, и её можно поменять без давления. <a href="#register">Приходите 3 ноября</a>';
     }
   }
   chips.forEach(function (c) {
@@ -190,7 +190,7 @@
     }
     var age = (form.querySelector('input[name="age"]:checked') || {}).value;
     var eats = form.eats.value.trim();
-    var text = 'Здравствуйте! Хочу на вебинар «Малоежки» 27 октября.\n' +
+    var text = 'Здравствуйте! Хочу на вебинар «Малоежки» 3 ноября.\n' +
       'Имя: ' + name + '\nWhatsApp: ' + phone +
       (age ? '\nВозраст ребёнка: ' + age : '') +
       (eats ? '\nСейчас ест: ' + eats : '');
